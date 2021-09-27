@@ -3,10 +3,13 @@
     padding: 0px;
 }
 
+body{
+    background-color: black;
+}
 
 
 .chat {
-    background-color:cornflowerblue;
+    background-color:#1D2DA3;
     margin: auto;
     float: left;
     width: 70%;
@@ -14,20 +17,21 @@
     color: white;
     overflow: scroll;
     overflow-x: hidden;
+    text-align: justify;
     word-wrap: break-word;
 }
 
 .users {
-    background-color: blue;
+    background-color: #e9c240;
     margin: auto;
-    float: left;
-    width: 30%;
+    float: right;
+    width: 29.5%;
     height: 75%;
 }
 
 .text {
     display: flex;
-    background-color: gray;
+    background-color: #6173FF;
     margin: auto;
     float: left;
     width: 70%;
@@ -36,10 +40,10 @@
 }
 
 .menu {
-    background-color: green;
+    background-color: #e9c240;
     margin: auto;
     float: right;
-    width: 30%;
+    width: 29.5%;
     height: 25%;
 }
 
@@ -49,7 +53,7 @@
     border: solid 5px black;
     width: 60%;
     height: 90%;
-    background-color: midnightblue;
+    background-color: #A3810D;
     
 }
 
@@ -105,7 +109,23 @@ form{
 }
 
 .textpool{
-    padding: 8px;
-    font-size: 32px;
-    word-spacing: 5px;
+    padding: 6px;
+    font-size: 28px;
+    word-spacing: 3px;
+    width: 80%;
 }
+
+
+*::-webkit-scrollbar {
+    width: 16px;
+  }
+
+*::-webkit-scrollbar-track {
+    background: #204DA3;
+  }
+
+*::-webkit-scrollbar-thumb {
+    background-color: #6173FF;
+    border-radius: 2px;
+    border: 3px outset #000000;
+  }
