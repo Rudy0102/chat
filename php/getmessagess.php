@@ -14,7 +14,7 @@ if (isset($_GET['p'])){
     // $page=$_GET['p'];
     // $limit = $page*100;
     require("connectdatabase.php");
-    $question = "SELECT id,autor,tresc,data FROM wiadomosci ;"; //ogaranc koljenosc wyswietlania potem
+    $question = "SELECT wiadomosci.id,autor,tresc,data,nazwa FROM wiadomosci,uzytkownicy WHERE wiadomosci.autor = uzytkownicy.id ;"; //ogaranc koljenosc wyswietlania potem
     //LIMIT ($limit,$limit+100)
     $result = mysqli_query($link,$question);
     class wiadomosc{
@@ -27,7 +27,7 @@ if (isset($_GET['p'])){
     }
     $tablica = [];
     while($row=mysqli_fetch_assoc($result)){
-        $wiadomosc = new wiadomosc($row['id'],$row['autor'],$row['tresc'],$row['data']);
+        $wiadomosc = new wiadomosc($row['id'],$row['nazwa'],$row['tresc'],$row['data']);
         array_push($tablica,$wiadomosc);
         // var_dump($json);
     }
