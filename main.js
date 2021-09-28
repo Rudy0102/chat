@@ -19,28 +19,19 @@ const form = document.getElementById("form");
 form.addEventListener("submit",(event)=>{
     event.preventDefault();
     sendMessage();
-    getMessages();
 })
 function sendMessage(){
     const usertext = document.getElementById('usertext');
-    //Obj of data to send in future like a dummyDb
-    const data = { message: usertext};
-    //POST request with body equal on data in JSON format
-    fetch('./php/sendmessagess.php', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-    })
-    .then((response) => response.json())
-    //Then with the data from the response in JSON...
-    .then((data) => {
-    console.log('Success:', data);
-    })
-    //Then with the error genereted...
-    .catch((error) => {
-    console.error('Error:', error);
-    });
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            getMessages();
+            // usertext.innerHTML=" ";
+        }
+    };
+    xhttp.open("POST", "./php/sendmessagess.php");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("$usertext="+usertext.value);
 };
 
