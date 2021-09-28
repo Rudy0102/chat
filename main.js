@@ -43,4 +43,12 @@ function sendMessage(){
     console.error('Error:', error);
     });
 };
+function showinfo(){
+    const accountmenu = document.getElementById('accountmenu');
+    accountmenu.style.visibility="visible";
+}
+function hideinfo(){
+    const accountmenu = document.getElementById('accountmenu');
+    accountmenu.style.visibility="hidden";
+}
 
