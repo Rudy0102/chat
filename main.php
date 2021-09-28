@@ -28,8 +28,8 @@
             <button onclick="showinfo()">Account</button>
         </div>
         <div class="text">
-            <form method="POST" , autocomplete="off">
-                <input type="text" name="usertext" class="usertextarea">
+            <form method="POST" , autocomplete="off" id="form">
+                <input type="text" name="usertext" class="usertextarea" id="usertext">
                 <input type="submit" class="buttonsend" value="Send">
             </form>
         </div>
