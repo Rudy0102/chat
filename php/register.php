@@ -35,7 +35,7 @@ class RegisterClass{
         include("login.php");
         $login = new loginClass;    //automaticly logins after registration
         $login->login($this->login,$this->password);
-        header("Location: ../main.html");
+        //header("Location: ../main.html");
         exit();
 }
 }
