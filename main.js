@@ -50,4 +50,9 @@ function hideinfo(){
     const accountmenu = document.getElementById('accountmenu');
     accountmenu.style.visibility="hidden";
 }
+function loginhide(){
+    const login = document.getElementById('login');
+    login.style.visibility="hidden";
+    console.log("test");
+}
 

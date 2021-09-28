@@ -73,13 +73,13 @@ body{
     transform: translateY(20px);
 }
 
-input{
+.text input{
     border: none;
     outline: none;
 }
 
 
-form{
+.text form{
     margin: auto;
     transform: scale(3);
     text-decoration: none;
@@ -160,7 +160,7 @@ form{
 }
 
 .info button{
-    float:right;
+    float: right;
     transform: translateY(-1.5px);
     width: 80px;
     height: 30px;
@@ -187,4 +187,58 @@ form{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     transform: translate(-20px, 200px);
     float: right;
+}
+
+.loginsite form{
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    text-align: left;
+    margin-top: 5px;
+}
+
+.registertext
+{
+    text-align: left;
+}
+
+.login input[type=submit]
+{
+    background-color: #1D2DA3;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.loginsite input
+{
+    width: 200px;
+    height: 25px;
+}
+.loginsite{
+    padding: 5px;
+    background-color: rgb(97, 115, 255);
+    width: 50%;
+    height: 250px;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 15px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 32px;
+    border: solid 3px black;
+}
+
+.login{
+    position: absolute;
+    background: rgba(29, 45, 163, 0.5);
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    visibility: visible;
 }
