@@ -1,5 +1,9 @@
 //Get messages
-window.onload = getMessages;
+window.onload = ()=>{
+    getMessages();
+    setInterval(()=>{
+            getMessages();
+    },5000)};
 function getMessages(){
     const chat = document.getElementById('chat');
     let messagess =  document.getElementsByClassName('chatmessage');
@@ -20,6 +24,7 @@ function getMessages(){
                 wiadomosc.classList.add("chatmessage");
                 chat.appendChild(wiadomosc);
             });
+            chat.scrollIntoView(false);
         });
 };
 //Send messagess
@@ -55,4 +60,3 @@ function loginhide(){
     login.style.visibility="hidden";
     console.log("test");
 }
-
