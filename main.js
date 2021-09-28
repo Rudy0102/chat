@@ -1,52 +1,29 @@
-//Get messages
-window.onload = ()=>{
-    getMessages();
-    setInterval(()=>{
-            getMessages();
-    },5000)};
-function getMessages(){
-    const chat = document.getElementById('chat');
-    let messagess =  document.getElementsByClassName('chatmessage');
-    const number = messagess.length;
-    if (messagess.length > 0){
-        for (let i = 0; i < number; i++) {
-            messagess[0].remove();
-        }
+let time;
+function idle(){
+    time++;
+    if(time == 2){
+        location.href = "http://localhost/php/chat-testjson/timeout.php";
+        location.reload();
+        console.log("test2");
     }
-    fetch('./php/getmessagess.php?p=0')
-        .then(response => response.json())
-        .then(data => {
-            // console.log(data);
-            data.forEach(element => {
-                let wiadomosc = document.createElement('p');
-                let tresc = document.createTextNode(element.autor+': '+element.tresc+' ');
-                wiadomosc.appendChild(tresc);
-                wiadomosc.classList.add("chatmessage");
-                chat.appendChild(wiadomosc);
-            });
-            chat.scrollIntoView(false);
-        });
-};
-//Send messagess
-const form = document.getElementById("form");
-form.addEventListener("submit",(event)=>{
-    event.preventDefault();
-    sendMessage();
-})
-function sendMessage(){
-    const usertext = document.getElementById('usertext');
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // console.log(this.responseText);
-            getMessages();
-            // usertext.innerHTML=" ";
-        }
-    };
-    xhttp.open("POST", "./php/sendmessagess.php");
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("usertext="+usertext.value);
-};
+    else{
+    document.getElementsByTagName('html')[0].addEventListener("mousemove", timeoutoff);
+    }
+}
+
+function timeoutoff()
+{
+    time = 0;
+    console.log("ruch");
+    idle();
+}
+
+function loginhide(){
+    const login = document.getElementById('login');
+    login.style.visibility="hidden";
+    console.log("test");
+}
+
 function showinfo(){
     const accountmenu = document.getElementById('accountmenu');
     accountmenu.style.visibility="visible";
@@ -55,8 +32,42 @@ function hideinfo(){
     const accountmenu = document.getElementById('accountmenu');
     accountmenu.style.visibility="hidden";
 }
-function loginhide(){
-    const login = document.getElementById('login');
-    login.style.visibility="hidden";
-    console.log("test");
-}
+//Get messages
+const chat = document.getElementById('chat');
+fetch('./php/getmessagess.php?p=0')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        data.forEach(element => {
+            console.log(element.id);
+            let wiadomosc = document.createElement('p');
+            let tresc = document.createTextNode(element.autor+': '+element.tresc+' ');
+            wiadomosc.appendChild(tresc);
+            // test.appendChild(wiadomosc)
+            chat.appendChild(wiadomosc);
+        });
+    });
+
+//Send messagess
+// const form = document.getElementById('form');
+// form.addEventListener("submit",(e)=>{
+//     e.preventDefault();
+//     data = document.getElementById('usertext').value;
+//     fetch('./php/sendmessagess.php', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'text/plain',
+//         },
+//         title: "text",
+//         body: data
+//         })
+//         .then(res => res.json())
+//         .then(data => {
+//         // enter you logic when the fetch is successful
+//             console.log(data)
+//         })
+//         .catch(error => {
+//         // enter your logic for when there is an error (ex. error toast)
+//         console.log(error)
+//         })  
+// })
