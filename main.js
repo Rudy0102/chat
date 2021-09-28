@@ -3,7 +3,7 @@ window.onload = ()=>{
     getMessages();
     setInterval(()=>{
             getMessages();
-    },1000)};
+    },5000)};
 function getMessages(){
     const chat = document.getElementById('chat');
     let messagess =  document.getElementsByClassName('chatmessage');
