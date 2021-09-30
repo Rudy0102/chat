@@ -2,7 +2,7 @@ let time;
 function idle(){
     time++;
     if(time == 2){
-        location.href = "http://localhost/php/chat-testjson/timeout.php";
+        location.href = "./php/timeout.php";
         location.reload();
         console.log("test2");
     }
@@ -49,7 +49,7 @@ function getMessages(){
         });
 };
 //Send messagess
-const form = document.getElementById("form");
+const form = document.getElementById("formmessagess");
 form.addEventListener("submit",(event)=>{
     event.preventDefault();
     sendMessage();
