@@ -23,11 +23,11 @@
                     $_SESSION["username"]=$login;
                     $_SESSION["logged"]=true;
                     $_SESSION["userid"]=$row['id'];
-                    header('Location: ../main.php');    
+                    header('Location: ../main.html');    
                     exit();
                 }
             }
-            header('Location: ../main.php');       // redirect again to login page          
+            header('Location: ../main.html');       // redirect again to login page          
             exit();
         }
     }
