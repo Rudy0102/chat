@@ -1,3 +1,37 @@
+let time;
+function idle(){
+    time++;
+    if(time == 2){
+        location.href = "http://localhost/php/chat-testjson/timeout.php";
+        location.reload();
+        console.log("test2");
+    }
+    else{
+    document.getElementsByTagName('html')[0].addEventListener("mousemove", timeoutoff);
+    }
+}
+
+function timeoutoff()
+{
+    time = 0;
+    console.log("ruch");
+    idle();
+}
+
+function loginhide(){
+    const login = document.getElementById('login');
+    login.style.visibility="hidden";
+    console.log("test");
+}
+
+function showinfo(){
+    const accountmenu = document.getElementById('accountmenu');
+    accountmenu.style.visibility="visible";
+}
+function hideinfo(){
+    const accountmenu = document.getElementById('accountmenu');
+    accountmenu.style.visibility="hidden";
+}
 //Get messages
 window.onload = getMessages;
 function getMessages(){
